@@ -5,7 +5,7 @@
 
 var statusBar = document.getElementById("statusBar");
 
-var text = "";
+var text = "cool";
 
 var currentPlayer = true;
 
