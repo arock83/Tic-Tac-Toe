@@ -45,45 +45,33 @@ var player1;
 var player2;
 var currentPlayer = true;
 // WIN/TIE VARIABLES
-var win = {};
+var win;
 var tie;
 // TRACKER VARIABLES
 var xOrO = "X";
-if (currentPlayer !== true) {
-	xOrO = "O";
-}
 // WINNING VARIABLES
-win.way1 = 6;
-win.way2 = 60;
-win.way3 = 600;
-win.way4 = 111;
-win.way5 = 222;
-win.way6 = 333;
-win.way7 = 123;
-win.way8 = 321;
 
 // ADDING EVENT LISTENERS
-a1.addEventListener("click", mark(a1));
-a2.addEventListener("click", mark(a2));
-a3.addEventListener("click", mark(a3));
-b1.addEventListener("click", mark(b1));
-b2.addEventListener("click", mark(b2));
-b3.addEventListener("click", mark(b3));
-c1.addEventListener("click", mark(c1));
-c2.addEventListener("click", mark(c2));
-c3.addEventListener("click", mark(c3));
+a1.addEventListener("mousedown", mark);
+a2.addEventListener("mousedown", mark);
+a3.addEventListener("mousedown", mark);
+b1.addEventListener("mousedown", mark);
+b2.addEventListener("mousedown", mark);
+b3.addEventListener("mousedown", mark);
+c1.addEventListener("mousedown", mark);
+c2.addEventListener("mousedown", mark);
+c3.addEventListener("mousedown", mark);
 
 // MAIN FUNCTION
 function mark(cell) {
-	console.log("event");
-	cell.innerHTML = xOrO;
-		}/*currentPlayer = false;
-	if(player1 || player2 == win.way1 || win.way2 || win.way3 || win.way4 || win.way5 || win.way6 || win.way7 || win.way8) {
-     // WINNING PLACEHOLDER
-    //} else if (){
-
-	//} else {
-		
+	console.log(cell);
+	cell.target.innerHTML = xOrO;
+	if (currentPlayer) {
+		xOrO = "O";
+	} else {
+		xOrO = "X";
 	}
-	cell.removeEventListener("mouseout", "");
-}*/
+	currentPlayer = !currentPlayer;
+	// REMOVE EVENT LISTENER
+	cell.target.removeEventListener(cell.type, arguments.callee);
+}
