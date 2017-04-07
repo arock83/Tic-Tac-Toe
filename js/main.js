@@ -16,6 +16,8 @@ var statusBar = document.getElementById("statusBar");
 var text = "";
 
 var currentPlayer = true;
+var p1Score;
+var p2Score;
 
 var gameRunning = true;
 var gameStatus = "p1Win";
@@ -33,7 +35,7 @@ function changeHeader() {
 		} else if (gameStatus === "p1Win"){
 			text = "Player 1 Win";
 		} else if (gameStatus === "p2Win"){
-			text = "Player 2 Wn";
+			text = "Player 2 Win";
 		}
 		statusBar.innerHTML = "<h2> " + text + "</h2>";
 }
@@ -59,15 +61,96 @@ cell3_3.addEventListener("click", mark);
 
 
 
+
 function mark(cell){
 	cell.target.innerHTML = xOrO
 
 	if (currentPlayer){
-		xOrO = "X";
+		xOrO = "x";
+		p1Score += cell.target.score 
 	} else {
-		xOrO = "O";
+		xOrO = "o";
+		p2Score += cell.target.score
 	}
 	currentPlayer = !currentPlayer;
-
+	whoWon();
 	changeHeader();
+
+
 }
+
+
+
+				
+
+ function whoWon(){
+	if (cell1_1.innerHTML === "x" && cell1_2.innerHTML === "x" && cell1_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell1_1.innerHTML === "o" && cell1_2.innerHTML === "o" && cell1_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+
+	if (cell2_1.innerHTML === "x" && cell2_2.innerHTML === "x" && cell2_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell2_1.innerHTML === "o" && cell2_2.innerHTML === "o" && cell2_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+
+	if (cell3_1.innerHTML === "x" && cell3_2.innerHTML === "x" && cell3_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell3_1.innerHTML === "o" && cell3_2.innerHTML === "o" && cell3_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+
+	if (cell1_1.innerHTML === "x" && cell2_2.innerHTML === "x" && cell3_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell1_1.innerHTML === "o" && cell2_2.innerHTML === "o" && cell3_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+	if (cell3_1.innerHTML === "x" && cell2_2.innerHTML === "x" && cell1_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell3_1.innerHTML === "o" && cell2_2.innerHTML === "o" && cell1_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+	if (cell1_1.innerHTML === "x" && cell2_1.innerHTML === "x" && cell3_1.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell1_1.innerHTML === "o" && cell2_1.innerHTML === "o" && cell3_1.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+	if (cell1_2.innerHTML === "x" && cell2_2.innerHTML === "x" && cell3_2.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell1_2.innerHTML === "o" && cell2_2.innerHTML === "o" && cell3_2.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+	if (cell1_3.innerHTML === "x" && cell2_3.innerHTML === "x" && cell3_3.innerHTML === "x"){
+			gameRunning = false;
+			gameStatus = "p1Win";
+	} else if (cell1_3.innerHTML === "o" && cell2_3.innerHTML === "o" && cell3_3.innerHTML === "o"){
+			gameRunning = false;
+			gameStatus = "p2Win";
+	} 
+} 
+			
+			
+
+
+
+
+
+
+
+
