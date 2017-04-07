@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/main.css">
 
-	<title></title>
 </head>
 <body>
-	<h1>Tic Tac Toe</h1>
+    <header class="section1">  
+        <h1>Tic Tac Toe</h1>
+        <h3 id="statusBar">Ready Player 1</h3>
+    </header>
 
-	<table>
-		<tr>
-			<td id="cell1_1"></td> 
-		 	<td id="cell1_2"></td> 
-		 	<td id="cell1_3"></td>
-		</tr>
-		<tr>
-		 	<td id="cell2_1"></td> 
-		 	<td id="cell2_2"></td> 
-		 	<td id="cell2_3"></td>
-		</tr>
-		<tr>
-		 	<td id="cell3_1"></td></td> 
-			<td id="cell3_2"></td></td> 
-			<td id="cell3_3"></td>
-		</tr>
-	</table>
-	<link rel="stylesheet" href="css/main.css">
-	<script type="text/javascript" src="js/main.js"></script>
+    <div class="wrapper">
+	    <section class="section2">
+	        <table>
+	            <tr>
+	                <td id="cell1_1" name="1"></td> 
+	                <td id="cell1_2" name="2"></td> 
+	                <td id="cell1_3" name="3"></td>
+	            </tr>
+	            <tr>
+	                <td id="cell2_1" name="11"></td> 
+	                <td id="cell2_2" name="22"></td> 
+	                <td id="cell2_3" name="33"></td>
+	            </tr>
+	            <tr>
+	                <td id="cell3_1" name="111"></td> 
+	                <td id="cell3_2" name="222"></td> 
+	                <td id="cell3_3" name="333"></td>
+	            </tr>
+	        </table>
+	    </section>
+	</div>
+
+    <section class="section3">
+        <button type="button" id="reset">RESET GAME</button>
+    </section>
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>
