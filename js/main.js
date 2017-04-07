@@ -1,27 +1,25 @@
 //Declaring cell variables
+var a1 = document.getElementById("cell1_1");
+var a2 = document.getElementById("cell1_2");
+var a3 = document.getElementById("cell1_3");
+var b1 = document.getElementById("cell2_1");
+var b2 = document.getElementById("cell2_2");
+var b3 = document.getElementById("cell2_3");
+var c1 = document.getElementById("cell3_1");
+var c2 = document.getElementById("cell3_2");
+var c3 = document.getElementById("cell3_3");
 
-var cell1_1 = document.getElementById("cell1_1");
-var cell1_2 = document.getElementById("cell1_2");
-var cell1_3 = document.getElementById("cell1_3");
 
-var cell2_1 = document.getElementById("cell2_1");
-var cell2_2 = document.getElementById("cell2_2");
-var cell2_3 = document.getElementById("cell2_3");
-
-var cell3_1 = document.getElementById("cell3_1");
-var cell3_2 = document.getElementById("cell3_2");
-var cell3_3 = document.getElementById("cell3_3");
 
 var statusBar = document.getElementById("statusBar");
 var text = "";
 
 var currentPlayer = true;
-var p1Score;
-var p2Score;
 
 var gameRunning = true;
-var gameStatus = "p1Win";
-var xOrO =""
+var gameStatus = "";
+var xOrO = "x";
+changeHeader();
 
 function changeHeader() {
 	if (gameRunning){
@@ -40,42 +38,35 @@ function changeHeader() {
 		statusBar.innerHTML = "<h2> " + text + "</h2>";
 }
 
-changeHeader();
 
-
-
-//Adding X and O to <td> elements
-
-
-cell1_1.addEventListener("click", mark);
-cell1_2.addEventListener("click", mark);
-cell1_3.addEventListener("click", mark);
-
-cell2_1.addEventListener("click", mark);
-cell2_2.addEventListener("click", mark);
-cell2_3.addEventListener("click", mark);
-
-cell3_1.addEventListener("click", mark);
-cell3_2.addEventListener("click", mark);
-cell3_3.addEventListener("click", mark);
-
+// ADDING EVENT LISTENERS
+a1.addEventListener("mousedown", mark);
+a2.addEventListener("mousedown", mark);
+a3.addEventListener("mousedown", mark);
+b1.addEventListener("mousedown", mark);
+b2.addEventListener("mousedown", mark);
+b3.addEventListener("mousedown", mark);
+c1.addEventListener("mousedown", mark);
+c2.addEventListener("mousedown", mark);
+c3.addEventListener("mousedown", mark);
 
 
 
 function mark(cell){
 	cell.target.innerHTML = xOrO
+	console.log(cell);
+	currentPlayer = !currentPlayer;
 
 	if (currentPlayer){
-		xOrO = "x";
-		p1Score += cell.target.score 
+		xOrO = "x"; 
 	} else {
 		xOrO = "o";
-		p2Score += cell.target.score
 	}
-	currentPlayer = !currentPlayer;
+
 	whoWon();
 	changeHeader();
 
+	cell.target.removeEventListener(cell.type, arguments.callee);
 
 }
 
@@ -143,13 +134,20 @@ function mark(cell){
 			gameRunning = false;
 			gameStatus = "p2Win";
 	} 
+	if (a1.innerHTML.length > 1 &&
+    a2.innerHTML.length > 1 &&
+    a3.innerHTML.length > 1 &&
+    b1.innerHTML.length > 1 &&
+    b2.innerHTML.length > 1 &&
+    b3.innerHTML.length > 1 &&
+    c1.innerHTML.length > 1 &&
+    c2.innerHTML.length > 1 &&
+    c3.innerHTML.length > 1) {
+
+    gameStatus = "Tie";
+    gameRunning = false;
+}
 } 
-			
-			
-
-
-
-
 
 
 
